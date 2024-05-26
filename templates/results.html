@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты анализа</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Результаты анализа</h1>
+        {% for result in results %}
+            <div class="result">
+                <h2>{{ result.url }}</h2>
+                <p><strong>robots.txt:</strong> {{ result.robots_txt }}</p>
+                <p><strong>Дублирующийся контент:</strong> {{ result.duplicate_content }}</p>
+                <p><strong>Ошибки кода:</strong> {{ result.code_errors }}</p>
+                <p><strong>Ошибки HTML:</strong> {{ result.html_errors }}</p>
+                <p><strong>Внутренние ссылки:</strong> {{ result.internal_links }}</p>
+                <p><strong>Ссылки:</strong> {{ result.links }}</p>
+                <p><strong>Вес изображений:</strong> {{ result.image_weights }}</p>
+                <p><strong>Скорость загрузки:</strong> {{ result.page_speed }}</p>
+                <p><strong>Мета теги:</strong> {{ result.meta_tags }}</p>
+                <p><strong>Текст:</strong> {{ result.text }}</p>
+                <p><strong>Видео:</strong> {{ result.video }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
